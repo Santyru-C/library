@@ -8,10 +8,10 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container">
+    <div id="container">
         <div class="header">My book list</div>
         <div class="main">
-            <table>
+            <table id="book-table">
                 <colgroup>
                     <col class="title-column">
                     <col class="author-column">
@@ -28,26 +28,29 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="book-title">Libro1</td>
-                        <td class="book-author">autor1</td>
+                        <td class="book-title">MockBook1</td>
+                        <td class="book-author">MockerHolmes</td>
                         <td class="book-pages">1</td>
-                        <td>si</td>
-                    </tr>
-                    <tr>
-                        <td class="book-title">Libro2</td>
-                        <td class="book-author">autor2</td>
-                        <td class="book-pages">2</td>
-                        <td>si</td>
-                    </tr>
-                    <tr>
-                        <td class="book-title">Libro3</td>
-                        <td class="book-author">autor3</td>
-                        <td class="book-pages">3</td>
-                        <td>si</td>
+                        <td>YES</td>
                     </tr>
                 </tbody>
             </table>
+            <button id="add-book-button">+</button>
         </div>
     </div>
+    <div class="form-container">
+        <form action="">
+            <h3></h3>
+            <input type="text" id="title-input" placeholder="Title" required>
+            <input type="text" id="author-input" placeholder="Author" required>
+            <input type="number" id="pages-input" placeholder="Pages" required>
+            <div class="checkbox-container">
+                <label for="read-input">Mark as read</label>
+                <input type="checkbox" id="read-input" required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script src="./script.js"></script>
 </body>
 </html>
