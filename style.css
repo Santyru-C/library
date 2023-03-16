@@ -6,3 +6,12 @@ td, th {
 .title-column {
     width: 5rem;
 }
+
+.form-container {
+    position: fixed;
+    transform: scale(0);
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
