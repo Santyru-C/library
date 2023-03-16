@@ -15,7 +15,6 @@ function Book(title, author, pageNumber, read) {
 
 function addBookToLibrary(book) {
   library.push(book);
-  console.log(book);
 }
 
 function createBookTableRow(book) {
@@ -38,20 +37,28 @@ function showBookForm() {
   bookForm.classList.add('form-container--active');
 }
 
-function getBookFromInput(event) {
-  event.preventDefault();
+function createBookFromInput() {
   const titleInput = document.getElementById('title-input').value;
   const authorInput = document.getElementById('author-input').value;
   const pagesInput = document.getElementById('pages-input').value;
   const readInput = document.getElementById('read-input').checked;
 
-  newBook = new Book(titleInput, authorInput, pagesInput, readInput);
-
-  addBookToLibrary(newBook);
-  displayAllBooks();
+  return new Book(titleInput, authorInput, pagesInput, readInput);
 }
 
-submitBookButton.addEventListener('click', getBookFromInput);
+function handleBookData(event) {
+  event.preventDefault();
+  const newBook = createBookFromInput();
+
+  // check if book is already in library
+
+  addBookToLibrary(newBook);
+  createBookTableRow(newBook);
+
+  console.log(library);
+}
+
+submitBookButton.addEventListener('click', handleBookData);
 addBookButton.addEventListener('click', showBookForm);
 
 displayAllBooks(library);
