@@ -16,6 +16,16 @@ function addBookToLibrary(book) {
   library.push(book);
 }
 
+// add functionality to the button
+// I'll have to remove the tr it is contained in after being clicked
+
+function createRemoveButton() {
+  const removeButton = document.createElement('button');
+  removeButton.textContent = 'Remove';
+  removeButton.classList.add('remove-book-button');
+  return document.createElement('td').appendChild(removeButton);
+}
+
 function createBookTableRow(book) {
   const row = bookTable.insertRow();
 
@@ -24,6 +34,10 @@ function createBookTableRow(book) {
     cell.textContent = book[key];
     row.appendChild(cell);
   });
+
+  const lastCell = document.createElement('td');
+  lastCell.appendChild(createRemoveButton());
+  row.appendChild(lastCell);
 }
 
 function displayAllBooks() {
