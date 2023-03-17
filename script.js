@@ -18,11 +18,15 @@ function addBookToLibrary(book) {
 
 // add functionality to the button
 // I'll have to remove the tr it is contained in after being clicked
+function removeBook() {
+  console.log("I'm being removed!");
+}
 
 function createRemoveButton() {
   const removeButton = document.createElement('button');
   removeButton.textContent = 'Remove';
   removeButton.classList.add('remove-book-button');
+  removeButton.addEventListener('click', removeBook);
   return document.createElement('td').appendChild(removeButton);
 }
 
