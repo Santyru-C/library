@@ -28,14 +28,17 @@ function removeBook() {
   parentRow.remove();
 }
 
+function toggleReadStatus() {
+
+}
 // refactor next two functions into one
 function createReadButton(value) {
-  const removeButton = document.createElement('button');
-  removeButton.textContent = value;
-  removeButton.classList.add('read-button');
+  const readButton = document.createElement('button');
+  readButton.textContent = value;
+  readButton.classList.add('read-button');
   // removeButton.addEventListener('click', removeBook);
 
-  return document.createElement('td').appendChild(removeButton);
+  return readButton;
 }
 
 function createRemoveButton() {
@@ -44,7 +47,7 @@ function createRemoveButton() {
   removeButton.classList.add('remove-book-button');
   removeButton.addEventListener('click', removeBook);
 
-  return document.createElement('td').appendChild(removeButton);
+  return removeButton;
 }
 
 function setDataAttribute(row, book) {
