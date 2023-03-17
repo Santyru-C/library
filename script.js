@@ -1,7 +1,8 @@
 const library = [];
 const bookTable = document.getElementById('book-table');
 const addBookButton = document.getElementById('add-book-button');
-const bookForm = document.getElementsByClassName('form-container')[0];
+const formContainer = document.getElementsByClassName('form-container')[0];
+const form = document.getElementsByTagName('form')[0];
 // create a book object constructor that has title, author, pages and read as properties
 
 function Book(title, author, pageNumber, read) {
@@ -29,12 +30,12 @@ function displayAllBooks() {
   library.forEach((item) => createBookTableRow(item));
 }
 
-function showBookForm() {
-  bookForm.classList.add('form-container--active');
+function showFormContainer() {
+  formContainer.classList.add('form-container--active');
 }
 
-function hideBookForm() {
-  bookForm.classList.remove('form-container--active');
+function hideFormContainer() {
+  formContainer.classList.remove('form-container--active');
 }
 
 function createBookFromInput() {
@@ -56,11 +57,10 @@ function handleBookData(event) {
   createBookTableRow(newBook);
 
   this.reset();
-  hideBookForm();
+  hideFormContainer();
 }
 
-const form = document.getElementsByTagName('form')[0];
 form.addEventListener('submit', handleBookData);
-addBookButton.addEventListener('click', showBookForm);
+addBookButton.addEventListener('click', showFormContainer);
 
 displayAllBooks(library);
