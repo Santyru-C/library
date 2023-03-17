@@ -16,27 +16,38 @@ function addBookToLibrary(book) {
   library.push(book);
 }
 
-function removeFromList(bookRow) {
-  const indexToRemove = bookRow.getAttribute('data-index');
+function getBookIndexFromRow(bookRow) {
+  const indexFromRow = bookRow.getAttribute('data-index');
+  return indexFromRow;
+}
+
+function removeFromList(indexToRemove) {
   delete library[indexToRemove];
   library = library.filter((el) => el != null); // remove empty indexes
 }
 
 function removeBook() {
-  const parentRow = this.parentNode.parentNode;
-  removeFromList(parentRow);
-  parentRow.remove();
+  const bookRow = this.parentNode.parentNode;
+  removeFromList(getBookIndexFromRow(bookRow));
+  bookRow.remove();
 }
 
 function toggleReadStatus() {
-
+  if (this.textContent === 'Yes') {
+    this.textContent = 'No';
+    library[getBookIndexFromRow(this.parentNode.parentNode)].read = 'No';
+  } else {
+    this.textContent = 'Yes';
+    library[getBookIndexFromRow(this.parentNode.parentNode)].read = 'Yes';
+  }
 }
+
 // refactor next two functions into one
 function createReadButton(value) {
   const readButton = document.createElement('button');
   readButton.textContent = value;
   readButton.classList.add('read-button');
-  // removeButton.addEventListener('click', removeBook);
+  readButton.addEventListener('click', toggleReadStatus);
 
   return readButton;
 }
