@@ -5,8 +5,7 @@ const addBookButton = document.getElementById('add-book-button');
 const formContainer = document.getElementsByClassName('form-container')[0];
 const form = document.getElementsByTagName('form')[0];
 
-function Book(id, title, author, pageNumber, read) {
-  this.id = id;
+function Book(title, author, pageNumber, read) {
   this.title = title;
   this.author = author;
   this.pageNumber = pageNumber;
