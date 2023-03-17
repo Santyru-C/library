@@ -1,4 +1,4 @@
-const library = [];
+let library = [];
 
 const bookTable = document.getElementById('book-table');
 const addBookButton = document.getElementById('add-book-button');
@@ -16,10 +16,18 @@ function addBookToLibrary(book) {
   library.push(book);
 }
 
+function removeFromList(bookRow) {
+  const indexToRemove = bookRow.getAttribute('data-index');
+  delete library[indexToRemove];
+  library = library.filter((el) => el != null); // remove empty indexes
+}
 // add functionality to the button
 // I'll have to remove the tr it is contained in after being clicked
 function removeBook() {
-  this.parentNode.parentNode.remove();
+  const parentRow = this.parentNode.parentNode;
+  parentRow.remove();
+
+  removeFromList(parentRow);
 }
 
 function createRemoveButton() {
@@ -27,6 +35,7 @@ function createRemoveButton() {
   removeButton.textContent = 'Remove';
   removeButton.classList.add('remove-book-button');
   removeButton.addEventListener('click', removeBook);
+
   return document.createElement('td').appendChild(removeButton);
 }
 
