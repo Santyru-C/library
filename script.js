@@ -1,9 +1,7 @@
 let library = [];
 
 const bookTable = document.getElementById('book-table');
-const addBookButton = document.getElementById('add-book-button');
-const formContainer = document.getElementsByClassName('form-container')[0];
-const form = document.getElementsByTagName('form')[0];
+const form = document.getElementById('book-form');
 
 function Book(title, author, pageNumber, read) {
   this.title = title;
@@ -91,13 +89,13 @@ function displayAllBooks() {
   library.forEach((item) => createBookTableRow(item));
 }
 
-function showFormContainer() {
-  formContainer.classList.add('form-container--active');
-}
+// function showFormContainer() {
+//  formContainer.classList.add('form-container--active');
+// }
 
-function hideFormContainer() {
-  formContainer.classList.remove('form-container--active');
-}
+// function hideFormContainer() {
+//  formContainer.classList.remove('form-container--active');
+// }
 
 function createBookFromInput() {
   const titleInput = document.getElementById('title-input').value;
@@ -118,10 +116,15 @@ function handleBookData(event) {
   createBookTableRow(newBook);
 
   this.reset();
-  hideFormContainer();
 }
 
 form.addEventListener('submit', handleBookData);
-addBookButton.addEventListener('click', showFormContainer);
 
+const default1 = new Book('Don Quijote de la Mancha', 'Miguel de Cervantes', 1, true);
+const default2 = new Book('Moby-Dick', 'Herman Melville', 1, true);
+const default3 = new Book('Hamlet', 'William Shakespeare', 1, true);
+
+addBookToLibrary(default1);
+addBookToLibrary(default2);
+addBookToLibrary(default3);
 displayAllBooks(library);
