@@ -1,17 +1,81 @@
+@font-face {
+    font-family: roboto;
+    src: url(./fonts/Roboto-Regular.ttf);
+  }
+  
+* {
+    box-sizing: border-box;
+    /*font-family: roboto;*/
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+  }
+
+body {
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.main-container {
+    min-height: 100vh;
+    width: max-content;
+}
+
+table {
+    border-collapse: collapse;
+}
+
 td, th {
-    border: 1px solid rgb(190,190,190);
+    border-bottom: 1px solid rgb(190,190,190);
     padding: 10px 20px;
 }
 
+th {
+    background-color: #d97706;
+}
+
+.start-aligned {
+    text-align: start;
+}
+
+td:nth-child(3),
+td:nth-child(4) {
+    text-align: center 
+}
+
 .title-column {
-    width: 5rem;
+    width: 25rem;
+}
+
+.author-column {
+    width: 15rem;
 }
 
 .form-container {
     position: fixed;
     transform: scale(0);
 }
+
 form {
     display: flex;
     flex-direction: column;
+}
+
+.form-container--active {
+    transform: scale(1);
 }
