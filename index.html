@@ -10,6 +10,7 @@
 <body>
     <div class="main-container">
         <div class="main">
+            <div><h1>Library app</h1></div>
             <table id="book-table">
                 <colgroup>
                     <col class="title-column">
@@ -30,13 +31,21 @@
                 </thead>
                 <tbody></tbody>
             </table>
-            <button id="add-book-button">+</button>
         </div>
     </div>
     <div class="test-container">
-        <form class="test-form" action=""></form>
+        <form class="test-form" action="">
+            <input type="text" id="test-title-input" placeholder="Title" required>
+            <input type="text" id="test-author-input" placeholder="Author" required>
+            <input type="number" id="test-pages-input" placeholder="Pages" required>
+            <div class="test-checkbox-container">
+                <label for="read-input">Mark as read</label>
+                <input type="checkbox" id="read-input">
+            </div>
+            <button type="submit" id="submit-book-button">Submit</button>
+        </form>
     </div>
-    <div class="form-container">
+    <!--<div class="form-container">    
         <form action="">
             <input type="text" id="title-input" placeholder="Title" required>
             <input type="text" id="author-input" placeholder="Author" required>
@@ -47,7 +56,7 @@
             </div>
             <button type="submit" id="submit-book-button">Submit</button>
         </form>
-    </div>
+    </div>-->
     <script src="./script.js"></script>
 </body>
 </html>
