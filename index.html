@@ -8,8 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="container">
-        <div class="header">My book list</div>
+    <div class="main-container">
         <div class="main">
             <table id="book-table">
                 <colgroup>
@@ -17,13 +16,16 @@
                     <col class="author-column">
                     <col class="pages-column">
                     <col class="read-column">
+                    <col class="tag-column">
                 </colgroup>
+                <caption>My book list</caption>
                 <thead>
                     <tr>
-                        <th>Title</th>
-                        <th>Author</th>
-                        <th>N° Pages</th>
+                        <th class="start-aligned">Title</th>
+                        <th class="start-aligned">Author</th>
+                        <th>Pages</th>
                         <th>Read</th>
+                        <th>Tags</th>
                     </tr>
                 </thead>
                 <tbody></tbody>
@@ -31,15 +33,17 @@
             <button id="add-book-button">+</button>
         </div>
     </div>
+    <div class="test-container">
+        <form class="test-form" action=""></form>
+    </div>
     <div class="form-container">
         <form action="">
-            <h3></h3>
             <input type="text" id="title-input" placeholder="Title" required>
             <input type="text" id="author-input" placeholder="Author" required>
             <input type="number" id="pages-input" placeholder="Pages" required>
             <div class="checkbox-container">
                 <label for="read-input">Mark as read</label>
-                <input type="checkbox" id="read-input" required>
+                <input type="checkbox" id="read-input">
             </div>
             <button type="submit" id="submit-book-button">Submit</button>
         </form>
