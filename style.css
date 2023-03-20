@@ -1,3 +1,10 @@
+:root {
+    --main-color: #4f46e5;
+    --background: #e0e7ff;
+    --font-white: #FFF;
+
+
+}
 @font-face {
     font-family: roboto;
     src: url(./fonts/Roboto-Regular.ttf);
@@ -19,7 +26,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #fef3c7;
+    background-color: #e0e7ff;
+    margin-top: 1rem;
 }
 
 button {
@@ -36,8 +44,8 @@ button {
 
 .app-title {
     text-align: center;
-    color: #FFF;
-    background-color: #fbbf24;
+    color: var(--font-white);
+    background-color: var(--main-color);
     padding: 2rem 4rem;
     margin-bottom: 2rem;
 }
@@ -50,13 +58,15 @@ button {
 }
 
 caption {
-    background-color: #d97706;
+    color: #FFF;
+    background-color: #4f46e5;
     padding: 0.5rem 1rem;
 }
 
 table {
     border-collapse: collapse;
     height: 100%;
+    width: 900px;
     border-right: 1px solid rgb(190,190,190);
     border-left: 1px solid rgb(190,190,190);
 }
@@ -79,13 +89,25 @@ td:nth-child(4) {
     text-align: center 
 }
 
+td:nth-child(4),
+td:nth-child(5) {
+    color: #1d439b;
+}
+
 .title-column {
-    width: 25rem;
+    min-width: 20rem;
 }
 
 .author-column {
-    width: 15rem;
+    min-width: 15rem;
 }
+
+.read-column,
+.pages-column,
+.tag-column {
+    min-width: 7rem;
+}
+
 
 /**/
 
@@ -93,10 +115,43 @@ td:nth-child(4) {
     position: fixed;
     bottom: 3%;
     padding: 0.5rem 1rem;
-    border: 1px solid black;
+    border: 1px solid #696969;
 }
 
 form {
     display: flex;
+    align-items: center;
     gap: 1rem;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+}
+
+
+#read-input {
+    position: relative;
+    top: 1.5px;
+  }
+
+label,
+input {
+  font-family: inherit;
+  font-size: 100%;
+  margin: 0;
+  padding: 5px;
+  height: 30px;
+}
+
+#submit-book-button {
+    background-color: #4f46e5;
+    color: #FFF;
+    border-radius: 4px;
+    padding: 0.25rem 0.5rem;
+    margin-left: 2rem;
+}
+
+input:active {
+    outline: #4f46e5;
 }
