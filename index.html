@@ -10,7 +10,9 @@
 <body>
     <div class="main-container">
         <div class="main">
-            <div><h1>Library app</h1></div>
+            <div class="title-container">
+                <h1 class="app-title">Library App</h1>
+            </div>
             <table id="book-table">
                 <colgroup>
                     <col class="title-column">
@@ -19,25 +21,44 @@
                     <col class="read-column">
                     <col class="tag-column">
                 </colgroup>
-                <caption>My book list</caption>
+                <caption>MY BOOK LIST</caption>
                 <thead>
                     <tr>
                         <th class="start-aligned">Title</th>
                         <th class="start-aligned">Author</th>
                         <th>Pages</th>
-                        <th>Read</th>
+                        <th>Finished</th>
                         <th>Tags</th>
                     </tr>
                 </thead>
-                <tbody></tbody>
+                <tbody id="book-table--body"></tbody>
             </table>
         </div>
     </div>
     <div class="form-container">
-        <form class="form" action="">
-            <input type="text" id="title-input" placeholder="Title" required>
-            <input type="text" id="author-input" placeholder="Author" required>
-            <input type="number" id="pages-input" placeholder="Pages" required>
+        <form id="book-form" action="">
+            <input 
+                type="text" 
+                id="title-input" 
+                placeholder="Title" 
+                minlength="1"
+                maxlength="35"
+                required>
+            <input 
+                type="text" 
+                id="author-input" 
+                placeholder="Author" 
+                minlength="1"
+                maxlength="35"
+                required>
+            <input 
+                type="number" 
+                id="pages-input" 
+                placeholder="Pages" 
+                min="1" 
+                max="9999" 
+                required
+                >
             <div class="checkbox-container">
                 <label for="read-input">Mark as read</label>
                 <input type="checkbox" id="read-input">
