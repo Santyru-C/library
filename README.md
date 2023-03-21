@@ -3,16 +3,6 @@ Web library project made to learn about js objects.
 
 Live demo [_here_](https://santyru-c.github.io/library/).
 
-## Table of Contents
-* [General Info](#general-information)
-* [Technologies Used](#technologies-used)
-* [Screenshots](#screenshots)
-* [Usage](#usage)
-* [Project Status](#project-status)
-* [Room for Improvement](#room-for-improvement)
-* [Acknowledgements](#acknowledgements)
-* [Contact](#contact)
-
 ## General Information
 This project was made following the TOP curriculum.
 The first iteration covers the lessons about objects, in particular object construction, instantiation and prototypical inheritance.
@@ -27,7 +17,7 @@ The following tools and pages were used in the design process:
 - [SVGs](https://pictogrammers.com/library/mdi/icon/pickaxe/)
 
 ## Screenshots
-![Example screenshot](./images/library_screenshot.png)
+![Example screenshot](./library_screenshot.png)
 
 ## Usage
 Just provide the necessary book information and click on submit. The book will be stored as and object and displayed in the table.
