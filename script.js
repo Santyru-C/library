@@ -1,10 +1,10 @@
+const bookTableBody = document.getElementById('book-table--body');
+const form = document.getElementById('book-form');
+
 const Library = {
   storage: [],
   addBook(book) {
     this.storage.push(book);
-  },
-  displayAllBooks() {
-    this.storage.forEach((item) => createBookTableRow(item));
   },
   removeFromStorage(index) {
     delete Library.storage[index];
@@ -19,8 +19,7 @@ function Book(title, author, pageNumber, read) {
   this.read = read;
 }
 
-const bookTableBody = document.getElementById('book-table--body');
-const form = document.getElementById('book-form');
+/* DOM manipulation */
 
 function getBookIndexFromRow(bookRow) {
   const indexFromRow = bookRow.getAttribute('data-index');
@@ -36,14 +35,13 @@ function removeBook() {
 function toggleReadStatus() {
   if (this.textContent === 'Yes') {
     this.textContent = 'No';
-    library[getBookIndexFromRow(this.parentNode.parentNode)].read = 'No';
+    Library.storage[getBookIndexFromRow(this.parentNode.parentNode)].read = 'No';
   } else {
     this.textContent = 'Yes';
-    library[getBookIndexFromRow(this.parentNode.parentNode)].read = 'Yes';
+    Library.storage[getBookIndexFromRow(this.parentNode.parentNode)].read = 'Yes';
   }
 }
 
-/* DOM manipulation */
 function createReadButton(value) {
   const readButton = document.createElement('button');
   readButton.textContent = value;
@@ -111,6 +109,10 @@ function handleBookData(event) {
   this.reset();
 }
 
+function displayAllBooks() {
+  Library.storage.forEach((item) => createBookTableRow(item));
+}
+
 form.addEventListener('submit', handleBookData);
 
 const defaultBooks = [];
@@ -119,4 +121,4 @@ defaultBooks[1] = new Book('Moby-Dick', 'Herman Melville', 1, 'Yes');
 defaultBooks[2] = new Book('Hamlet', 'William Shakespeare', 1, 'Yes');
 
 defaultBooks.forEach((item) => Library.addBook(item));
-Library.displayAllBooks();
+displayAllBooks();
