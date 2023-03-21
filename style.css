@@ -160,6 +160,9 @@ input {
   height: var(--gap4);
 }
 
+#pages-input {
+    width: 6rem;
+}
 #submit-book-button {
     background-color: var(--main-color);
     color: var(--font-white);
