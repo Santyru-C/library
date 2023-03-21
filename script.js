@@ -7,7 +7,7 @@ const Library = {
     this.storage.push(book);
   },
   removeFromStorage(index) {
-    delete Library.storage[index];
+    delete this.storage[index];
     this.storage = this.storage.filter((el) => el != null); // remove empty indexes
   },
 };
