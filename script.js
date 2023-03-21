@@ -1,7 +1,12 @@
-let library = [];
-
-const bookTableBody = document.getElementById('book-table--body');
-const form = document.getElementById('book-form');
+const Library = {
+  storage: [],
+  addBook(book) {
+    this.storage.push(book);
+  },
+  displayAllBooks() {
+    this.storage.forEach((item) => createBookTableRow(item));
+  },
+};
 
 function Book(title, author, pageNumber, read) {
   this.title = title;
@@ -10,9 +15,8 @@ function Book(title, author, pageNumber, read) {
   this.read = read;
 }
 
-function addBookToLibrary(book) {
-  library.push(book);
-}
+const bookTableBody = document.getElementById('book-table--body');
+const form = document.getElementById('book-form');
 
 function getBookIndexFromRow(bookRow) {
   const indexFromRow = bookRow.getAttribute('data-index');
@@ -40,7 +44,6 @@ function toggleReadStatus() {
   }
 }
 
-// refactor next two functions into one
 function createReadButton(value) {
   const readButton = document.createElement('button');
   readButton.textContent = value;
@@ -87,10 +90,6 @@ function createBookTableRow(book) {
   row.appendChild(lastCell);
 }
 
-function displayAllBooks() {
-  library.forEach((item) => createBookTableRow(item));
-}
-
 function createBookFromInput() {
   const titleInput = document.getElementById('title-input').value;
   const authorInput = document.getElementById('author-input').value;
@@ -106,7 +105,7 @@ function handleBookData(event) {
 
   // check if book is already in library
 
-  addBookToLibrary(newBook);
+  Library.addBook(newBook);
   createBookTableRow(newBook);
 
   this.reset();
@@ -118,7 +117,7 @@ const default1 = new Book('Don Quijote de la Mancha', 'Miguel de Cervantes', 1, 
 const default2 = new Book('Moby-Dick', 'Herman Melville', 1, 'Yes');
 const default3 = new Book('Hamlet', 'William Shakespeare', 1, 'Yes');
 
-addBookToLibrary(default1);
-addBookToLibrary(default2);
-addBookToLibrary(default3);
-displayAllBooks(library);
+Library.addBook(default1);
+Library.addBook(default2);
+Library.addBook(default3);
+displayAllBooks(Library.storage);
