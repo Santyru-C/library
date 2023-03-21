@@ -107,10 +107,10 @@ function handleBookData(event) {
   event.preventDefault();
   const newBook = createBookFromInput();
 
-  console.log(Library.checkIfAlreadyStored(newBook));
-
-  Library.addBook(newBook);
-  createBookTableRow(newBook);
+  if (!Library.checkIfAlreadyStored(newBook)) {
+    Library.addBook(newBook);
+    createBookTableRow(newBook);
+  }
 
   this.reset();
 }
