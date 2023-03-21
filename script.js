@@ -3,12 +3,19 @@ const form = document.getElementById('book-form');
 
 const Library = {
   storage: [],
+
   addBook(book) {
     this.storage.push(book);
   },
+
   removeFromStorage(index) {
     delete this.storage[index];
     this.storage = this.storage.filter((el) => el != null); // remove empty indexes
+  },
+
+  checkIfAlreadyStored(newBook) {
+    return this.storage.some((book) => book.title === newBook.title
+    && book.author === newBook.author);
   },
 };
 
@@ -20,6 +27,10 @@ function Book(title, author, pageNumber, read) {
 }
 
 /* DOM manipulation */
+function setDataAttribute(row, book) {
+  const bookIndex = Library.storage.indexOf(book);
+  row.setAttribute('data-index', bookIndex.toString());
+}
 
 function getBookIndexFromRow(bookRow) {
   const indexFromRow = bookRow.getAttribute('data-index');
@@ -62,11 +73,6 @@ function createRemoveButton() {
   return removeButton;
 }
 
-function setDataAttribute(row, book) {
-  const bookIndex = Library.storage.indexOf(book);
-  row.setAttribute('data-index', bookIndex.toString());
-}
-
 function createBookTableRow(book) {
   const row = bookTableBody.insertRow();
   setDataAttribute(row, book);
@@ -101,7 +107,7 @@ function handleBookData(event) {
   event.preventDefault();
   const newBook = createBookFromInput();
 
-  // check if book is already in library
+  console.log(Library.checkIfAlreadyStored(newBook));
 
   Library.addBook(newBook);
   createBookTableRow(newBook);
