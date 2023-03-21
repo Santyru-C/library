@@ -43,6 +43,7 @@ function toggleReadStatus() {
   }
 }
 
+/* DOM manipulation */
 function createReadButton(value) {
   const readButton = document.createElement('button');
   readButton.textContent = value;
@@ -112,11 +113,10 @@ function handleBookData(event) {
 
 form.addEventListener('submit', handleBookData);
 
-const default1 = new Book('Don Quijote de la Mancha', 'Miguel de Cervantes', 1, 'Yes');
-const default2 = new Book('Moby-Dick', 'Herman Melville', 1, 'Yes');
-const default3 = new Book('Hamlet', 'William Shakespeare', 1, 'Yes');
+const defaultBooks = [];
+defaultBooks[0] = new Book('Don Quijote de la Mancha', 'Miguel de Cervantes', 1, 'Yes');
+defaultBooks[1] = new Book('Moby-Dick', 'Herman Melville', 1, 'Yes');
+defaultBooks[2] = new Book('Hamlet', 'William Shakespeare', 1, 'Yes');
 
-Library.addBook(default1);
-Library.addBook(default2);
-Library.addBook(default3);
+defaultBooks.forEach((item) => Library.addBook(item));
 Library.displayAllBooks();
