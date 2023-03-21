@@ -1,6 +1,6 @@
 let library = [];
 
-const bookTable = document.getElementById('book-table');
+const bookTableBody = document.getElementById('book-table--body');
 const form = document.getElementById('book-form');
 
 function Book(title, author, pageNumber, read) {
@@ -52,7 +52,9 @@ function createReadButton(value) {
 
 function createRemoveButton() {
   const removeButton = document.createElement('button');
-  removeButton.textContent = 'Remove';
+  const img = document.createElement('img');
+  img.setAttribute('src', './svg/trash-can-outline.svg');
+  removeButton.appendChild(img);
   removeButton.classList.add('remove-book-button');
   removeButton.addEventListener('click', removeBook);
 
@@ -65,7 +67,7 @@ function setDataAttribute(row, book) {
 }
 
 function createBookTableRow(book) {
-  const row = bookTable.insertRow();
+  const row = bookTableBody.insertRow();
   setDataAttribute(row, book);
 
   Object.keys(book).forEach((key) => {
@@ -88,14 +90,6 @@ function createBookTableRow(book) {
 function displayAllBooks() {
   library.forEach((item) => createBookTableRow(item));
 }
-
-// function showFormContainer() {
-//  formContainer.classList.add('form-container--active');
-// }
-
-// function hideFormContainer() {
-//  formContainer.classList.remove('form-container--active');
-// }
 
 function createBookFromInput() {
   const titleInput = document.getElementById('title-input').value;
@@ -120,9 +114,9 @@ function handleBookData(event) {
 
 form.addEventListener('submit', handleBookData);
 
-const default1 = new Book('Don Quijote de la Mancha', 'Miguel de Cervantes', 1, true);
-const default2 = new Book('Moby-Dick', 'Herman Melville', 1, true);
-const default3 = new Book('Hamlet', 'William Shakespeare', 1, true);
+const default1 = new Book('Don Quijote de la Mancha', 'Miguel de Cervantes', 1, 'Yes');
+const default2 = new Book('Moby-Dick', 'Herman Melville', 1, 'Yes');
+const default3 = new Book('Hamlet', 'William Shakespeare', 1, 'Yes');
 
 addBookToLibrary(default1);
 addBookToLibrary(default2);
