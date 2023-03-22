@@ -103,6 +103,12 @@ function createBookFromInput() {
   return new Book(titleInput, authorInput, pagesInput, readInput);
 }
 
+function toggleAlert() {
+  const alert = document.getElementById('alert');
+  alert.classList.remove('hidden');
+  setTimeout(() => { alert.classList.add('hidden'); }, 3000);
+}
+
 function handleBookData(event) {
   event.preventDefault();
   const newBook = createBookFromInput();
@@ -110,6 +116,8 @@ function handleBookData(event) {
   if (!Library.checkIfAlreadyStored(newBook)) {
     Library.addBook(newBook);
     createBookTableRow(newBook);
+  } else {
+    toggleAlert();
   }
 
   this.reset();
