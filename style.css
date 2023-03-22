@@ -175,7 +175,7 @@ input:focus {
     outline-color: var(--main-color);
 }
 
-.alert {
+#alert {
     position: absolute;
     bottom: 55px;
     left: 40%;
@@ -183,7 +183,10 @@ input:focus {
     color: var(--font-white);
     background-color: red;
     font-weight: bold;
+}
+
+.hidden {
     visibility: hidden;
-
-
+    opacity: 0;
+    transition: visibility 0s 2s, opacity 2s linear;
 }
