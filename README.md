@@ -23,13 +23,13 @@ The following tools and pages were used in the design process:
 Just provide the necessary book information and click on submit. The book will be stored as and object and displayed in the table.
 
 ## Project Status
-Project is: _in progress_ <!--/ _complete_ / _no longer being worked on_. If you are no longer working on it, provide reasons why.-->
+Project is: _complete_
 
 
-<!-- ## Room for Improvement
+## Room for Improvement
 To do:
-- Feature to be added 1
-- Feature to be added 2-->
+- Add local storage to the page (Surely to be added when going through the database section of TOP).
+- Display in alphabetical order for author name and book title.
 
 
 ## Acknowledgements
